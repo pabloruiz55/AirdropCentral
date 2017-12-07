@@ -1,0 +1,1226 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for contracts/AirdropCentral.sol</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">contracts/</a> AirdropCentral.sol
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">74.68% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>59/79</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">41.38% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>24/58</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">63.16% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>12/19</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">74.12% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>63/85</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">pragma solidity 0.4.18;
+&nbsp;
+import './ERC20Basic.sol';
+&nbsp;
+/// @author Pablo Ruiz &lt;me@pabloruiz.co&gt;
+/// @Title Airdrop Central - To submit your token follow the instructions at:
+/// https://github.com/pabloruiz55/AirdropCentral
+&nbsp;
+//////////////////
+&nbsp;
+//
+// Permissions
+//                               Admin      Airdropper       User
+// approve/ revoke submissions     x
+// pause / unpause                 x
+// signupUsersManually             x
+// airdropTokens                                x
+// returnTokensToAirdropper                     x
+// signUpForAirdrops                                          x
+// quitFromAirdrops                                           x
+// getTokensAvailableToMe                                     x
+// withdrawTokens                                             x
+&nbsp;
+////////
+&nbsp;
+contract AirdropCentral {
+    using SafeMath for uint256;
+&nbsp;
+    // The owner / admin of the Airdrop Central
+    // In charge of accepting airdrop submissions
+    address public owner;
+&nbsp;
+    // How many tokens the owner keeps of each airdrop as transaction fee
+    uint public ownersCut = 2; // 2% commision in tokens
+&nbsp;
+    // Id of each airdrop (token address + id #)
+    struct TokenAirdropID {
+        address tokenAddress;
+        uint airdropAddressID; // The id of the airdrop within a token address
+    }
+&nbsp;
+    struct TokenAirdrop {
+        address tokenAddress;
+        uint airdropAddressID; // The id of the airdrop within a token address
+        address tokenOwner;
+        uint airdropDate; // The airdrop creation date
+        uint airdropExpirationDate; // When airdrop expires
+        uint tokenBalance; // Current balance
+        uint totalDropped; // Total to distribute
+        uint usersAtDate; // How many users were signed at airdrop date
+    }
+&nbsp;
+    struct User {
+        address userAddress;
+        uint signupDate; // Determines which airdrops the user has access to
+        // User -&gt; Airdrop id# -&gt; balance
+        mapping (address =&gt; mapping (uint =&gt; uint)) withdrawnBalances;
+    }
+&nbsp;
+    // Maps the tokens available to airdrop central contract. Keyed by token address
+    mapping (address =&gt; TokenAirdrop[]) public airdroppedTokens;
+    TokenAirdropID[] public airdrops;
+&nbsp;
+    // List of users that signed up
+    mapping (address =&gt; User) public signups;
+    uint public userSignupCount = 0;
+&nbsp;
+    // Admins with permission to accept submissions
+    mapping (address =&gt; bool) admins;
+&nbsp;
+    // Whether or not the contract is paused (in case of a problem is detected)
+    bool public paused = false;
+&nbsp;
+    // List of approved/rejected token/sender addresses
+    mapping (address =&gt; bool) public tokenWhitelist;
+    mapping (address =&gt; bool) public tokenBlacklist;
+    mapping (address =&gt; bool) public airdropperBlacklist;
+&nbsp;
+    //
+    // Modifiers
+    //
+&nbsp;
+    modifier onlyOwner {
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(msg.sender == owner);
+        _;
+    }
+&nbsp;
+    modifier onlyAdmin {
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(msg.sender == owner || admins[msg.sender]);
+        _;
+    }
+&nbsp;
+    modifier ifNotPaused {
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(!paused);
+        _;
+    }
+&nbsp;
+    //
+    // Events
+    //
+&nbsp;
+    event E_AirdropSubmitted(address _tokenAddress, address _airdropper,uint _totalTokensToDistribute,uint creationDate, uint _expirationDate);
+    event E_Signup(address _userAddress,uint _signupDate);
+    event E_TokensWithdrawn(address _tokenAddress,address _userAddress, uint _tokensWithdrawn, uint _withdrawalDate);
+&nbsp;
+    function AirdropCentral() public {
+        owner = msg.sender;
+    }
+&nbsp;
+    /////////////////////
+    // Owner / Admin functions
+    /////////////////////
+&nbsp;
+    /**
+     * @dev pause or unpause the contract in case a problem is detected
+     */
+<span class="fstat-no" title="function not covered" >    function setPaused(bool _isPaused) public onlyOwn</span>er{
+<span class="cstat-no" title="statement not covered" >        paused = _isPaused</span>;
+    }
+&nbsp;
+    /**
+     * @dev allows owner to grant/revoke admin privileges to other accounts
+     * @param _admin is the account to be granted/revoked admin privileges
+     * @param isAdmin is whether or not to grant or revoke privileges.
+     */
+<span class="fstat-no" title="function not covered" >    function setAdmin(address _admin, bool isAdmin) public onlyOwn</span>er{
+<span class="cstat-no" title="statement not covered" >        admins[_admin] = isAdmin</span>;
+    }
+&nbsp;
+    /**
+     * @dev removes a token and/or account from the blacklist to allow
+     * them to submit a token again.
+     * @param _airdropper is the account to remove from blacklist
+     * @param _tokenAddress is the token address to remove from blacklist
+     */
+    function removeFromBlacklist(address _airdropper, address _tokenAddress) public onlyOwner {
+        <span class="missing-if-branch" title="else path not taken" >E</span>if(_airdropper != address(0))
+            airdropperBlacklist[_airdropper] = false;
+&nbsp;
+        <span class="missing-if-branch" title="else path not taken" >E</span>if(_tokenAddress != address(0))
+            tokenBlacklist[_tokenAddress] = false;
+    }
+&nbsp;
+    /**
+     * @dev approves a given token and account address to make it available for airdrop
+     * This is necessary to avoid malicious contracts to be added.
+     * @param _airdropper is the account to add to the whitelist
+     * @param _tokenAddress is the token address to add to the whitelist
+     */
+    function approveSubmission(address _airdropper, address _tokenAddress) public onlyAdmin {
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(!airdropperBlacklist[_airdropper]);
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(!tokenBlacklist[_tokenAddress]);
+&nbsp;
+        tokenWhitelist[_tokenAddress] = true;
+    }
+&nbsp;
+    /**
+     * @dev removes token and airdropper from whitelist.
+     * Also adds them to a blacklist to prevent further submissions of any
+     * To be used in case of an emgency where the owner failed to detect
+     * a problem with the address submitted.
+     * @param _airdropper is the account to add to the blacklist and remove from whitelist
+     * @param _tokenAddress is the token address to add to the blacklist and remove from whitelist
+     */
+    function revokeSubmission(address _airdropper, address _tokenAddress) public onlyAdmin {
+        <span class="missing-if-branch" title="else path not taken" >E</span>if(_tokenAddress != address(0)){
+            tokenWhitelist[_tokenAddress] = false;
+            tokenBlacklist[_tokenAddress] = true;
+        }
+&nbsp;
+        <span class="missing-if-branch" title="else path not taken" >E</span>if(_airdropper != address(0)){
+            airdropperBlacklist[_airdropper] = true;
+        }
+&nbsp;
+    }
+&nbsp;
+    /**
+     * @dev allows admins to add users to the list manually
+     * Use to add people who explicitely asked to be added...
+     */
+<span class="fstat-no" title="function not covered" >    function signupUsersManually(address _user) public onlyAdmi</span>n {
+<span class="cstat-no" title="statement not covered" >        require(signups[_user].userAddress == address(0))</span>;
+<span class="cstat-no" title="statement not covered" >        signups[_user] = User(_user,now)</span>;
+        userSignupCount++;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        E_Signup(msg.sender,now)</span>;
+    }
+&nbsp;
+&nbsp;
+    /////////////////////
+    // Airdropper functions
+    /////////////////////
+&nbsp;
+    /**
+     * @dev Transfers tokens to contract and sets the Token Airdrop
+     * @notice Before calling this function, you must have given the Airdrop Central
+     * an allowance of the tokens to distribute.
+     * Call approve([this contract's address],_totalTokensToDistribute); on the ERC20 token cotnract first
+     * @param _tokenAddress is the address of the token
+     * @param _totalTokensToDistribute is the tokens that will be evenly distributed among all current users
+     * Enter the number of tokens (the function multiplies by the token decimals)
+     * @param _expirationTime is in how many seconds will the airdrop expire from now
+     * user should first know how many users are signed to know final approximate distribution
+     */
+    function airdropTokens(address _tokenAddress, uint _totalTokensToDistribute, uint _expirationTime) public ifNotPaused {
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(tokenWhitelist[_tokenAddress]);
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(!airdropperBlacklist[msg.sender]);
+&nbsp;
+        ERC20Basic token = ERC20Basic(_tokenAddress);
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(token.balanceOf(msg.sender) &gt;= _totalTokensToDistribute);
+&nbsp;
+        //Multiply number entered by token decimals.
+        _totalTokensToDistribute = _totalTokensToDistribute.mul(10 ** uint256(token.decimals()));
+&nbsp;
+        // Calculate owner's tokens and tokens to airdrop
+        uint tokensForOwner = _totalTokensToDistribute.mul(ownersCut).div(100);
+        _totalTokensToDistribute = _totalTokensToDistribute.sub(tokensForOwner);
+&nbsp;
+        // Store the airdrop unique id in array (token address + id)
+        TokenAirdropID memory taid = TokenAirdropID(_tokenAddress,airdroppedTokens[_tokenAddress].length);
+        TokenAirdrop memory ta = TokenAirdrop(_tokenAddress,airdroppedTokens[_tokenAddress].length,msg.sender,now,now+_expirationTime,_totalTokensToDistribute,_totalTokensToDistribute,userSignupCount);
+        airdroppedTokens[_tokenAddress].push(ta);
+        airdrops.push(taid);
+&nbsp;
+        // Transfer the tokens
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(token.transferFrom(msg.sender,this,_totalTokensToDistribute));
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(token.transferFrom(msg.sender,owner,tokensForOwner));
+&nbsp;
+        E_AirdropSubmitted(_tokenAddress,ta.tokenOwner,ta.totalDropped,ta.airdropDate,ta.airdropExpirationDate);
+&nbsp;
+    }
+&nbsp;
+    /**
+     * @dev returns unclaimed tokens to the airdropper after the airdrop expires
+     * @param _tokenAddress is the address of the token
+     */
+    function returnTokensToAirdropper(address _tokenAddress) public ifNotPaused {
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(tokenWhitelist[_tokenAddress]); // Token must be whitelisted first
+&nbsp;
+        // Get the token
+        ERC20Basic token = ERC20Basic(_tokenAddress);
+&nbsp;
+        uint tokensToReturn = 0;
+&nbsp;
+        for (uint i =0; i&lt;airdroppedTokens[_tokenAddress].length; i++){
+            TokenAirdrop storage ta = airdroppedTokens[_tokenAddress][i];
+            <span class="missing-if-branch" title="else path not taken" >E</span>if(msg.sender == ta.tokenOwner &amp;&amp;
+                airdropHasExpired(_tokenAddress,i)){
+&nbsp;
+                tokensToReturn = tokensToReturn.add(ta.tokenBalance);
+                ta.tokenBalance = 0;
+            }
+        }
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(token.transfer(msg.sender,tokensToReturn));
+        E_TokensWithdrawn(_tokenAddress,msg.sender,tokensToReturn,now);
+&nbsp;
+    }
+&nbsp;
+    /////////////////////
+    // User functions
+    /////////////////////
+&nbsp;
+    /**
+     * @dev user can signup to the Airdrop Central to receive token airdrops
+     * Airdrops made before the user registration won't be available to them.
+     */
+    function signUpForAirdrops() public ifNotPaused{
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(signups[msg.sender].userAddress == address(0));
+        signups[msg.sender] = User(msg.sender,now);
+        userSignupCount++;
+&nbsp;
+        E_Signup(msg.sender,now);
+    }
+&nbsp;
+    /**
+     * @dev removes user from airdrop list.
+     * Beware that token distribution for existing airdrops won't change.
+     * For example: if 100 tokens were to be distributed to 10 people (10 each).
+     * if one quitted from the list, the other 9 will still get 10 each.
+     * @notice WARNING: Quiting from the airdrop central will make you lose
+     * tokens not yet withdrawn. Make sure to withdraw all pending tokens before
+     * removing yourself from this list. Signing up later will not give you the older tokens back
+     */
+<span class="fstat-no" title="function not covered" >    function quitFromAirdrops() public ifNotPaus</span>ed{
+<span class="cstat-no" title="statement not covered" >        require(signups[msg.sender].userAddress == msg.sender)</span>;
+        delete signups[msg.sender];
+        userSignupCount--;
+    }
+&nbsp;
+    /**
+     * @dev calculates the amount of tokens the user will be able to withdraw
+     * Given a token address, the function checks all airdrops with the same address
+     * @param _tokenAddress is the token the user wants to check his balance for
+     * @return totalTokensAvailable is the tokens calculated
+     */
+<span class="fstat-no" title="function not covered" >    function getTokensAvailableToMe(address _tokenAddress) view public returns (uin</span>t){
+<span class="cstat-no" title="statement not covered" >        require(tokenWhitelist[_tokenAddress])</span>; // Token must be whitelisted first
+&nbsp;
+        // Get User instance, given the sender account
+<span class="cstat-no" title="statement not covered" >        User storage user = signups[msg.sender]</span>;
+<span class="cstat-no" title="statement not covered" >        require(user.userAddress != address(0))</span>;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        uint totalTokensAvailable= 0</span>;
+<span class="cstat-no" title="statement not covered" >        for (uint i =0; i&lt;airdroppedTokens[_tokenAddress].length; i++){</span>
+<span class="cstat-no" title="statement not covered" >            TokenAirdrop storage ta = airdroppedTokens[_tokenAddress][i]</span>;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            uint _withdrawnBalance = user.withdrawnBalances[_tokenAddress][i]</span>;
+&nbsp;
+            //Check that user signed up before the airdrop was done. If so, he is entitled to the tokens
+            //And the airdrop must not have expired
+<span class="cstat-no" title="statement not covered" >            if(ta.airdropDate &gt;= user.signupDate &amp;&amp;</span>
+                now &lt;= ta.airdropExpirationDate){
+&nbsp;
+                // The user will get a portion of the total tokens airdroped,
+                // divided by the users at the moment the airdrop was created
+<span class="cstat-no" title="statement not covered" >                uint tokensAvailable = ta.totalDropped.div(ta.usersAtDate)</span>;
+&nbsp;
+                // if the user has not alreay withdrawn the tokens, count them
+<span class="cstat-no" title="statement not covered" >                if(_withdrawnBalance &lt; tokensAvailable){</span>
+<span class="cstat-no" title="statement not covered" >                    totalTokensAvailable = totalTokensAvailable.add(tokensAvailable)</span>;
+&nbsp;
+                }
+            }
+        }
+<span class="cstat-no" title="statement not covered" >        return totalTokensAvailable;</span>
+    }
+&nbsp;
+    /**
+     * @dev calculates and withdraws the amount of tokens the user has been awarded by airdrops
+     * Given a token address, the function checks all airdrops with the same
+     * address and withdraws the corresponding tokens for the user.
+     * @param _tokenAddress is the token the user wants to check his balance for
+     */
+    function withdrawTokens(address _tokenAddress) ifNotPaused public {
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(tokenWhitelist[_tokenAddress]); // Token must be whitelisted first
+&nbsp;
+        // Get User instance, given the sender account
+        User storage user = signups[msg.sender];
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(user.userAddress != address(0));
+&nbsp;
+        uint totalTokensToTransfer = 0;
+        // For each airdrop made for this token (token owner may have done several airdrops at any given point)
+        for (uint i =0; i&lt;airdroppedTokens[_tokenAddress].length; i++){
+            TokenAirdrop storage ta = airdroppedTokens[_tokenAddress][i];
+&nbsp;
+            uint _withdrawnBalance = user.withdrawnBalances[_tokenAddress][i];
+&nbsp;
+            //Check that user signed up before the airdrop was done. If so, he is entitled to the tokens
+            //And the airdrop must not have expired
+            if(ta.airdropDate &gt;= user.signupDate &amp;&amp;
+                now &lt;= ta.airdropExpirationDate){
+&nbsp;
+                // The user will get a portion of the total tokens airdroped,
+                // divided by the users at the moment the airdrop was created
+                uint tokensToTransfer = ta.totalDropped.div(ta.usersAtDate);
+&nbsp;
+                // if the user has not alreay withdrawn the tokens
+                <span class="missing-if-branch" title="else path not taken" >E</span>if(_withdrawnBalance &lt; tokensToTransfer){
+                    // Register the tokens withdrawn by the user and total tokens withdrawn
+                    user.withdrawnBalances[_tokenAddress][i] = tokensToTransfer;
+                    ta.tokenBalance = ta.tokenBalance.sub(tokensToTransfer);
+                    totalTokensToTransfer = totalTokensToTransfer.add(tokensToTransfer);
+&nbsp;
+                }
+            }
+        }
+        // Get the token
+        ERC20Basic token = ERC20Basic(_tokenAddress);
+        // Transfer tokens from all airdrops that correspond to this user
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(token.transfer(msg.sender,totalTokensToTransfer));
+&nbsp;
+        E_TokensWithdrawn(_tokenAddress,msg.sender,totalTokensToTransfer,now);
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function airdropsCount() public view returns (uin</span>t){
+<span class="cstat-no" title="statement not covered" >        return airdrops.length;</span>
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function getAddress() public view returns (addres</span>s){
+<span class="cstat-no" title="statement not covered" >      return address(this);</span>
+    }
+&nbsp;
+    function airdropHasExpired(address _tokenAddress, uint _id) public view returns (bool){
+        TokenAirdrop storage ta = airdroppedTokens[_tokenAddress][_id];
+        return (now &gt; ta.airdropExpirationDate);
+    }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 07 2017 12:43:15 GMT-0300 (-03)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>
