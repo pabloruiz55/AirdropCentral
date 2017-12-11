@@ -123,7 +123,7 @@ contract('AirdropCentral', function(accounts) {
     logTitle("Will move forward in time");
     await timeTravel(1500) // Move forward 6 days in time so the crowdsale has ended
     await mineBlock() // workaround for https://github.com/ethereumjs/testrpc/issues/336
-
+    
 
     await airdropcentral.withdrawTokens(token.address,{from:accounts[4]});
     let tokenBalance = await token.balanceOf(accounts[4]);
