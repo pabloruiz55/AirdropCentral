@@ -18,6 +18,10 @@
     "type": "git",
     "url": "git+https://github.com/pabloruiz55/AirdropCentral.git"
   },
+  "scripts": {
+    "test": "truffle test",
+    "coverage": "./node_modules/.bin/solidity-coverage"
+  },
   "author": "Pablo Ruiz <me@pabloruiz.co>",
   "license": "MIT",
   "bugs": {
