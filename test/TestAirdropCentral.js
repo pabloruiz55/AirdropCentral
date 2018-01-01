@@ -111,19 +111,19 @@ contract('AirdropCentral', function(accounts) {
   });
 
   // STEP 6: Withdraw tokens of airdrop 1
-  it("user 3 should withdraw tokens of airdrop 1", async function () {
-    await airdropcentral.withdrawTokens(token.address,{from:accounts[3]});
-    let tokenBalance = await token.balanceOf(accounts[3]);
-    console.log("User 3 new token balance:",tokenBalance);
-
-  });
+  // it("user 3 should withdraw tokens of airdrop 1", async function () {
+  //   await airdropcentral.withdrawTokens(token.address,{from:accounts[3]});
+  //   let tokenBalance = await token.balanceOf(accounts[3]);
+  //   console.log("User 3 new token balance:",tokenBalance);
+  //
+  // });
 
   // STEP 7: Withdraw tokens of airdrop 1 after expriation
   it("user 4 should not be able to withdraw tokens of airdrop 1 after expriation", async function () {
     logTitle("Will move forward in time");
     await timeTravel(1500) // Move forward 6 days in time so the crowdsale has ended
     await mineBlock() // workaround for https://github.com/ethereumjs/testrpc/issues/336
-    
+
 
     await airdropcentral.withdrawTokens(token.address,{from:accounts[4]});
     let tokenBalance = await token.balanceOf(accounts[4]);
